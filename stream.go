@@ -293,6 +293,7 @@ func (c *Client) Connect(url_ *url.URL, params map[string]string, done chan bool
 	sc := NewStreamConn(c.MaxWait)
 
 	sc.url = url_
+    /*
 	// if http basic auth
 	if c.Username != "" && c.Password != "" {
 		sc.postData = formString(params)
@@ -308,6 +309,12 @@ func (c *Client) Connect(url_ *url.URL, params map[string]string, done chan bool
 		}
 
 	}
+    */
+    sc.postData = formString(params)
+    sc.authData = "Basic " + encodedAuth(c.Username, c.Password)
+    sc.connect = func() (*http.Response, error) {
+        return basicauthConnect(&sc)
+    }
 	resp, err = sc.connect()
 	if err != nil {
 		Log(ERROR, " error ", err)
