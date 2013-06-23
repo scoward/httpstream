@@ -13,7 +13,7 @@ import (
 	"bytes"
 	"encoding/base64"
 	"errors"
-	oauth "github.com/akrennmair/goauth"
+	oauth "github.com/scoward/goauth"
 	"io"
 	"io/ioutil"
 	"log"
