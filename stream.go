@@ -30,7 +30,7 @@ var (
 	userUrl, _                     = url.Parse("https://userstream.twitter.com/2/user.json")
 	siteStreamUrl, _               = url.Parse("https://sitestream.twitter.com/2b/site.json")
 	retryTimeout     time.Duration = time.Second * 10
-	OauthCon         *oauth.OAuthConsumer
+	OauthCon         = &oauth.OAuthConsumer{}
 )
 
 func init() {
