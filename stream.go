@@ -311,7 +311,7 @@ func (c *Client) Connect(url_ *url.URL, params map[string]string, done chan bool
 	}
     */
     sc.postData = formString(params)
-    sc.authData = params["token"]
+    //sc.authData = params["token"]
     sc.connect = func() (*http.Response, error) {
         return basicauthConnect(&sc)
     }
